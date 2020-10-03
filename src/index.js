@@ -78,6 +78,17 @@ import './index.css';
         xIsNext: (step % 2) === 0,
       });
     }
+
+    reset() {
+      this.setState({
+        history: [{
+          squares: Array(9).fill(null)
+        }],
+        stepNumber: 0,
+        xIsNext: true
+      });
+      console.log('reset');
+    }
     
     render() {
       const history = this.state.history;
@@ -109,6 +120,7 @@ import './index.css';
               squares={current.squares}
               onClick={(i) => this.handleClick(i)}
              />
+             <button onClick={() => this.reset()}>Reset</button>
           </div>
           <div className="game-info">
             <div>{status}</div>
